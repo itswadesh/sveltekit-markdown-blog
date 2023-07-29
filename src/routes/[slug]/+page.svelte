@@ -16,12 +16,13 @@
 		<p>Published at {formatDate(data.meta.date)}</p>
 	</hgroup>
 
-	<div class="tags">
-		{#each data.meta.categories as category}
-			<span class="surface-4">&num;{category}</span>
-		{/each}
-	</div>
-
+	{#if data.meta.categories?.length}
+		<div class="tags">
+			{#each data.meta.categories as category}
+				<span class="surface-4">&num;{category}</span>
+			{/each}
+		</div>
+	{/if}
 	<div class="prose">
 		<svelte:component this={data.content} />
 	</div>
